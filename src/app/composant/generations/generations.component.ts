@@ -23,7 +23,7 @@ export class GenerationsComponent {
   }
 
   getGenerations(){
-    this.pokemonService.getAllGeneration().subscribe(data => this.generations = data.results);
+    this.pokemonService.getAllGenerations().subscribe(data => this.generations = data);
 
   }
 

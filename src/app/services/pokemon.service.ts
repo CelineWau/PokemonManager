@@ -1,7 +1,8 @@
 import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {Pokemon} from "../models/pokemon";
+import {Generation} from "../models/generation";
 
 @Injectable({
   providedIn: 'root'
@@ -15,16 +16,16 @@ export class PokemonService {
   ) {
   }
 
-  // getAllGenerations() {
-  //   return this.http.get<{ results: Array<Generation> }>(this.BASE_URL + 'generation')
-  //     .pipe(
-  //       map(res => res.results)
-  //     );
-  // }
-
-  getAllGeneration(): Observable<any>{
-    return this.http.get(`${this.BASE_URL}/generation`);
+  getAllGenerations() {
+    return this.http.get<{ results: Array<Generation> }>(`${this.BASE_URL}/generation`)
+      .pipe(
+        map(res => res.results)
+      );
   }
+
+  // getAllGenerations(): Observable<any>{
+  //   return this.http.get(`${this.BASE_URL}/generation`);
+  // }
 
    getAllPokemons(): Observable<any> {
     return this.http.get(`${this.BASE_URL}/pokemon`);
