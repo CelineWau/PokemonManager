@@ -1,1 +1,9 @@
-<p>generations works!</p>
+<div class="m-2">
+  <h2>Les différentes Générations :</h2>
+  <ul>
+    @for (generation of generations; track generation) {
+      <li class="text-blue-500 hover:text-blue-700 cursor-pointer text-decoration-none">{{ generation }}</li>
+    }
+  </ul>
+</div>
+

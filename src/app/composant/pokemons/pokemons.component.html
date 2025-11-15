@@ -1,1 +1,16 @@
-<p>pokemons works!</p>
+<div class="m-2">
+  <h2>Dans l'ordre du pokédex :</h2>
+  <h3>{{ nbPokemon }} dans la base de données.</h3>
+  <div class="grid grid-cols-3 gap-4">
+    @for (pokemon of pokemons; track pokemon) {
+      <div class="border border-gray-200 rounded-lg p-4 flex flex-col items-center">
+        <h3 class="text-lg font-bold mb-2">{{ pokemon.name }}</h3>
+        <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+        <p class="mb-1">Taille : {{pokemon.height / 100}} m</p>
+        <p class="mb-1">Poids : {{pokemon.weight / 100}} kg</p>
+      </div>
+    }
+  </div>
+</div>
+
+
